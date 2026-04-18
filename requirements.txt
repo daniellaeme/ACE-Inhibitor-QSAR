@@ -1,0 +1,5 @@
+pandas
+chembl_webresource_client
+rdkit
+scikit-learn
+streamlit
