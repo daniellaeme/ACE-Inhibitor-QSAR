@@ -3,3 +3,8 @@ chembl_webresource_client
 rdkit
 scikit-learn
 streamlit
+numpy
+rdkit
+scipy
+matplotlib
+seaborn

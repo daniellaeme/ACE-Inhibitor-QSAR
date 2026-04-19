@@ -1,0 +1,8 @@
+Descriptor,p-value,Significance
+MW,5.375931996799609e-35,Significant ***
+LogP,2.3485429292711615e-13,Significant ***
+HBD,0.0025954645219374833,Significant ***
+HBA,3.972331307067724e-13,Significant ***
+TPSA,0.007110101672591631,Significant ***
+RotBonds,5.816687525760092e-22,Significant ***
+QED,0.06328529081816914,Not Significant
