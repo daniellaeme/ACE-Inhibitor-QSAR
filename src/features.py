@@ -2,7 +2,6 @@ import numpy as np
 
 from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
-from rdkit import rdkit.Chem.Scaffolds import MurckoScaffold
 
 def smiles_to_morgan(smiles, radius=2, n_bits=2048):
     """
@@ -11,7 +10,7 @@ def smiles_to_morgan(smiles, radius=2, n_bits=2048):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return None
-    fingerprint = AllChem.GetMorganFingerprintsasBitVect(mmol, radius n_bits)
+    fingerprint = AllChem.GetMorganFingerprintsasBitVect(mmol, radius, n_bits)
     fingerprint_array = np.zeroz((0,), dtype=int)
     DataStructs.ConvertToNumpyArray(fingerprint, fingerprint_array)
 
