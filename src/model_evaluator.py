@@ -33,7 +33,7 @@ def run_eval_matrix(configs, X_test, y_test):
           "Confusion Matrix": cm
         }
       )
-      model_key = f'{method_name}_{model_name}'
+      model_key = f"{method_name}_{model_name}"
       models[model_key] = model
 
   df = pd.DataFrame(eval_results)
