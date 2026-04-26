@@ -13,7 +13,7 @@ def smiles_to_morgan(smiles, radius=2, n_bits=2048, return_as_numpy=True):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return None
-    fingerprint = AllChem.GetMorganFingerprintasBitVect(mol, radius, n_bits)
+    fingerprint = AllChem.GetMorganFingerprintAsBitVect(mol, radius, n_bits)
 
     if not return_as_numpy:
         return fingerprint
