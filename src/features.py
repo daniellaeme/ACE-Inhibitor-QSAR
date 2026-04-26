@@ -4,15 +4,21 @@ from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem
 
 
-def smiles_to_morgan(smiles, radius=2, n_bits=2048):
+def smiles_to_morgan(smiles, radius=2, n_bits=2048, return_as_numpy=True):
     """
-    Converts the SMILES string into a Mogan fingerprint as a numpy array.
+    Converts the SMILES string into a Mogan fingerprint.
+    If return_as_numpy is True, returns a numpy array (for ML model).
+    If return_as_numpy is False, returns an RDKit ExplicitBitVect (for Tanimoto similarity).
     """
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
         return None
     fingerprint = AllChem.GetMorganFingerprintasBitVect(mol, radius, n_bits)
-    fingerprint_array = np.zeroz((0,), dtype=int)
+
+    if not return_as_numpy:
+        return fingerprint
+
+    fingerprint_array = np.zero((0,), dtype=int)
     DataStructs.ConvertToNumpyArray(fingerprint, fingerprint_array)
 
     return fingerprint_array
