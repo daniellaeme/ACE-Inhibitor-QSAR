@@ -18,7 +18,7 @@ def smiles_to_morgan(smiles, radius=2, n_bits=2048, return_as_numpy=True):
     if not return_as_numpy:
         return fingerprint
 
-    fingerprint_array = np.zero((0,), dtype=int)
+    fingerprint_array = np.zeros((0,), dtype=int)
     DataStructs.ConvertToNumpyArray(fingerprint, fingerprint_array)
 
     return fingerprint_array
