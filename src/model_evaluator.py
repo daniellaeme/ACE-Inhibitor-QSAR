@@ -8,6 +8,7 @@ def run_eval_matrix(configs, X_test, y_test):
   set and returns a DataFrame of results.
   """
   eval_results = []
+  models = []
   for config in configs:
     method_name = config['Sampling_Method']
     X_tr = config['X_train']
@@ -16,6 +17,7 @@ def run_eval_matrix(configs, X_test, y_test):
     for model_name, model in config['models'].items():
       model.fit(X_tr, y_tr)
       y_pred = model.predict(X_test)
+
       f1 = f1_score(y_test, y_pred, average='macro')
       precision = precision_score(y_test, y_pred, average='macro')
       recall = recall_score(y_test, y_pred, average='macro')
@@ -31,8 +33,10 @@ def run_eval_matrix(configs, X_test, y_test):
           "Confusion Matrix": cm
         }
       )
+      model_key = f'{method_name}_{model_name}'
+      models[model_key] = model
 
   df = pd.DataFrame(eval_results)
   df.sort_values(by=['Method', 'Algorithm'], inplace=True)
 
-  return df
+  return df, models
