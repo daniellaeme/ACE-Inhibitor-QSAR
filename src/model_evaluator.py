@@ -8,7 +8,7 @@ def run_eval_matrix(configs, X_test, y_test):
   set and returns a DataFrame of results.
   """
   eval_results = []
-  models = []
+  models = {}
   for config in configs:
     method_name = config['Sampling_Method']
     X_tr = config['X_train']
