@@ -1,7 +1,7 @@
 import numpy as np
 
 from rdkit import Chem, DataStructs
-from rdkit.Chem import Draw, rdFingerprintGenerator
+from rdkit.Chem import AllChem, Draw, rdFingerprintGenerator
 
 mfpgen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
 def smiles_to_morgan(smiles, return_as_numpy=True):
