@@ -48,9 +48,11 @@ def visualise_morgan_bit(smiles_list, bit_id, radius=2, n_bits=2048):
             continue
         info = {}
         # Get the fingerprint and populate the info dictionary with bit mappings
-        _ = local_gen.GetFingerprint(mol, additionalOutput=info)
+        # We use the classic method specifically for visualization because
+        # DrawMorganBit natively expects a plain Python dictionary format.
+        _ = AllChem.GetMorganFingerprintAsBitVect(mol, radius=radius, nBits=n_bits, bitInfo=info)
 
-        # Check if our target SHAP bit was activated in this specific molecule
+        # Check if the target SHAP bit was activated in this specific molecule
         if bit_id in info:
             print(f"Found Bit {bit_id} in SMILES: {smiles}")
             # Draw the molecule, highlighting the atoms responsible for the bit
