@@ -94,10 +94,11 @@ if input_mode == "Single SMILES":
             result = process_molecule(smiles_input, xgb_model, app_domain_assets)
 
             st.subheader("Applicability Domain")
-            if result['In_Domain']:
-                st.success(f"Within domain! \n(Distance: {result['AD_Distance']:.2f} <= {result['Threshold']:.2f})")
+            if not result['In_Domain']:
+                st.warning(f'Not within domain! \n(Distance: {result["AD_Distance"]:.2f} > {result["Threshold"]:.2f}).'
+                           f' Results might be unreliable.')
             else:
-                st.warning(f"Not within domain! \n (Distance: {result['AD_Distance']:.2f} > {result['Threshold']:.2f}). Results might be unreliable.")
+                st.success(f"Within domain! \n(Distance: {result['AD_Distance']:.2f} <= {result['Threshold']:.2f})")
 
             st.subheader("Bioactivity Prediction")
             if result['Prediction'] == 'Active':
