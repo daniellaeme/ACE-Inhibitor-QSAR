@@ -54,3 +54,11 @@ a_d_assets.pkl: The pca model.
 
 xgb_tuned_model.pkl: The final tuned model.
 
+
+# To run app:
+git clone https://github.com/daniellaeme/ACE-Inhibitor-QSAR.git
+cd ACE-Inhibitor-QSAR
+python -m venv venv
+venv/Scripts/activate
+pip install -r requirements.txt
+python app.py
