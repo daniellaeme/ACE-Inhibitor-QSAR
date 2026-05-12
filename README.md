@@ -2,6 +2,7 @@
 <img width="400" height="200" alt="streamlit_csv_window_snip" src="https://github.com/user-attachments/assets/cc89d431-8b6b-4ac2-bfed-a54dc23ea52a" />
 <img width="400" height="200" alt="streamlit_lisinopril_window_snip_2" src="https://github.com/user-attachments/assets/6f30dc9c-8dc1-4d93-8da3-0605c2dae7c0" />
 
+Streamlit app available at: https://ace-inhibitor-qsar.streamlit.app/
 
 # **Predicting Antihypertensive Bioactivity: A QSAR Model for Human Angiotensin-Converting Enzyme**
 
