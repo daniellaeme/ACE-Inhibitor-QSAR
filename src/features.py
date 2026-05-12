@@ -4,6 +4,8 @@ from rdkit import Chem, DataStructs
 from rdkit.Chem import AllChem, Draw, rdFingerprintGenerator
 
 mfpgen = rdFingerprintGenerator.GetMorganGenerator(radius=2, fpSize=2048)
+
+
 def smiles_to_morgan(smiles, return_as_numpy=True):
     """
     Converts the SMILES string into a Mogan fingerprint.
@@ -15,7 +17,7 @@ def smiles_to_morgan(smiles, return_as_numpy=True):
         return None
 
     if return_as_numpy:
-        return mfpgen.GetFingerprintAsNumpy(mol)
+        return mfpgen.GetFingerprintAsNumPy(mol)
     else:
         return mfpgen.GetFingerprint(mol)
 
